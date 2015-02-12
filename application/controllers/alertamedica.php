@@ -1,5 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
-
+/*
+ * Aministracion de las alertas medicas
+ */
 class Alertamedica extends CI_Controller {
 
 	function __construct()
