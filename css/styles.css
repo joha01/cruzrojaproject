@@ -1,0 +1,88 @@
+/* 
+    Document   : styles
+    Created on : 30/08/2014, 04:54:44 PM
+    Author     : newuser
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.loginarea { 
+        margin: 0 auto;
+	width:333px;
+	height: 352px;
+	padding: 58px 76px 0 76px;
+        color: #ffffff;
+	font: 12px Arial, Helvetica, sans-serif;
+    background-image: url('../img/cuadro_interno.png') ;
+    /*background: #000;*/
+}
+
+/*@import url('http://fonts.googleapis.com/css?family=Open+Sans:300,400');
+.navbar-inverse {
+    background-image: linear-gradient(to bottom, rgb(60, 60, 60) 0px, rgb(34, 34, 34) 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    background-image: '';
+}
+.navbar-inverse {
+    background-color: #ff0000;
+    border-color: rgb(8, 8, 8);
+}*/
+
+/*.navbar-default {
+	background-color: #ff0000;
+	border-color: #ff8040;
+}
+.navbar-default .navbar-brand {
+	color: #ffc082;
+}
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+	color: #fd5200;
+}
+.navbar-default .navbar-text {
+	color: #ffc082;
+}
+.navbar-default .navbar-nav > li > a {
+	color: #ffc082;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+	color: #fd5200;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+	color: #fd5200;
+	background-color: #ff8040;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+	color: #fd5200;
+	background-color: #ff8040;
+}
+.navbar-default .navbar-toggle {
+	border-color: #ff8040;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+	background-color: #ff8040;
+}
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: #ffc082;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+	border-color: #ffc082;
+}
+.navbar-default .navbar-link {
+	color: #ffc082;
+}
+.navbar-default .navbar-link:hover {
+	color: #fd5200;
+}
+
+@media (max-width: 767px) {
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+		color: #ffc082;
+	}
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+		color: #fd5200;
+	}
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		color: #fd5200;
+		background-color: #ff8040;
+	}
+}*/
