@@ -39,6 +39,7 @@
 */
 
 $route['default_controller'] = "welcome";
+//$route['default_controller'] = "auth/index";
 $route['404_override'] = '';
 
 

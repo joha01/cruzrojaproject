@@ -69,8 +69,11 @@ $options2 = array(
 
      <p>
             <?php echo lang('edit_user_fnacimiento_label', 'fnacimiento');?> <br />
-            <?php echo form_input($fnacimiento);?> 
-            <input  class="datepicker" type="date" id="example11" name="fnacimiento"  value=<?php $fnacimiento ?>>
+            <?php 
+       // print_r($fnacimiento);
+          
+            ?> 
+            <input name="fnacimiento"  class="datepicker fotm-control" type="text" id="example11" name="fnacimiento"  value="<?php $fnacimiento ?>">
             
     <!--<input  class="datepicker" type="text" placeholder="Ingrese la fecha de nacimiento"  id="example11" name="fnacimiento">-->
         <script type="text/javascript">

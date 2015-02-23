@@ -12,6 +12,7 @@
     </script>
     
        <?php 
+       
     $css = array(
         'http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css',
         base_url().'/resources/bootstrap-3.2.0/css/bootstrap.min.css',
@@ -95,6 +96,7 @@ $email = array(
     'name' => 'email',
     'id' => 'email',
     'class' =>  'cajas',
+  
     'value' =>  set_value('email'),
     'placeholder' => 'Escriba su email',
 );
@@ -173,6 +175,17 @@ $phonecontacto = array(
 ?>
 
 <?php echo form_open("auth/create_user");?>
+
+
+<form id="registration-form" class="form-horizontal">
+<h2>Sample Registration form <small>(Fill up the forms to get register)</small></h2>
+<div class="form-control-group">
+            <label class="control-label" for="name">Your Name</label>
+<div class="controls">
+              <input type="text" class="input-xlarge" name="name" id="name"></div>
+</div>
+
+
      <p>
             <?php echo lang('create_user_fname_label', 'first_name');?> <br />
             <?php echo form_input($first_name);?>
@@ -221,6 +234,8 @@ $phonecontacto = array(
             <?php echo form_input($email);?></div>
       </p>
 
+      
+      
       <p>
             <?php echo lang('create_user_phone_label', 'phone');?> <br />
             <?php echo form_input($phone);?>

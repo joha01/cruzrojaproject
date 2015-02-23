@@ -8,6 +8,7 @@
 ?>
 <div id="infoMessage" ><?php echo $message;?></div>
 
+<!--<div class="loginarea"> -->
 <div class="loginarea"> 
     <h1>CRUZ ROJA - LOJA</h1>
 <p>Ingrese su Usuario y Password</p>  

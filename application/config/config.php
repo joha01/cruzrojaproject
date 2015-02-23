@@ -14,8 +14,7 @@
 | path to your installation.
 |
 */
-//$config['base_url']	= 'http://localhost/cruzrojaproject/';
-$config['base_url']	= 'http://croja.com';
+$config['base_url']	= 'http://cruzroja.billingsof.com/cruzrojaproject/';
 
 /*
 |--------------------------------------------------------------------------
