@@ -4,7 +4,7 @@ class Main extends CI_Controller {
 	
 	function __construct() {
 		parent::__construct();
-		$this->load->model('bookmarksModel');
+		$this->load->model('bookmarks_model');
                 $this->load->model('mapa_model');
                 $this->load->helper('url');
                 $this->load->helper('html');
@@ -12,6 +12,18 @@ class Main extends CI_Controller {
                 $this->load->library('table');
                 $this->load->library('form_validation');
 		$this->load->database();
+                
+                parent::__construct();
+		$this->load->database();
+		$this->load->library('ion_auth');
+		$this->load->library('form_validation');
+		$this->load->helper('url');
+                $this->load->model('generic_model');
+		$this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
+
+		$this->lang->load('auth');
+                
+                
 
 	}
 
@@ -114,8 +126,8 @@ class Main extends CI_Controller {
             
             $direccion = array(
                 'name' => 'direccion',
-                'id' => 'direccion',
-                'value' => $edicion->direccion
+                'id' => 'direccion', 
+               'value' => $edicion->direccion
             );
             $permisos_id = array(
                 'name' => 'permisos_id',

@@ -32,7 +32,7 @@ echo Open('div', array('class'=>'row'));
   
   <?php
 ?>
-         <h1 class="page-header">Administración del Sistema</h1>          
+         <h1 class="page-header">ADMINISTRACIÓN DEL SISTEMA</h1>          
 
           <h2 class="sub-header">Lista de usuarios</h2>
           <div class="table-responsive">
