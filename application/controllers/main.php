@@ -4,6 +4,7 @@ class Main extends CI_Controller {
 	
 	function __construct() {
 		parent::__construct();
+                $this->load->database();
 		$this->load->model('bookmarks_model');
                 $this->load->model('mapa_model');
                 $this->load->helper('url');
@@ -11,18 +12,11 @@ class Main extends CI_Controller {
                 $this->load->library('image_lib');
                 $this->load->library('table');
                 $this->load->library('form_validation');
-		$this->load->database();
+                $this->load->library('ion_auth');
+//                $this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
+//
+//		$this->lang->load('main');
                 
-          
-		$this->load->library('ion_auth');
-		
-                $this->load->model('generic_model');
-		$this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
-
-		$this->lang->load('main');
-                
-                
-
 	}
 
 	public function index() {
