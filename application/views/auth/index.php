@@ -32,9 +32,9 @@ echo Open('div', array('class'=>'row'));
   
   <?php
 ?>
-         <h1 class="page-header">ADMINISTRACIÓN DEL SISTEMA</h1>          
+         <h1 class="page-header">ADMINISTRACIÓN DEL Sistema</h1>          
 
-          <h2 class="sub-header">Lista de usuarios</h2>
+          <h2 class="sub-header">Lista de Usuarios</h2>
           <div class="table-responsive">
                 <table cellpadding=0 cellspacing=10 class="table table-striped table-condensed">
                         <tr>
