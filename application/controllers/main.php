@@ -13,15 +13,13 @@ class Main extends CI_Controller {
                 $this->load->library('form_validation');
 		$this->load->database();
                 
-                parent::__construct();
-		$this->load->database();
+          
 		$this->load->library('ion_auth');
-		$this->load->library('form_validation');
-		$this->load->helper('url');
+		
                 $this->load->model('generic_model');
 		$this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
 
-		$this->lang->load('auth');
+		$this->lang->load('main');
                 
                 
 
@@ -300,7 +298,7 @@ class Main extends CI_Controller {
       
         public function verAlertas(){//ojo ARREGLAR el estado de las alertas(MAPA)
 		$data = array(
-			'enlaces' => $this->bookmarksModel->verTodasLasAlertas()
+			'enlaces' => $this->bookmarks_model->verTodasLasAlertas()
 			
 		);
 		
@@ -416,7 +414,7 @@ class Main extends CI_Controller {
 //--------------Administración de Permisos------------------------------
         
         public function buscarPermisos() {
-            $data['grupos'] = $this->bookmarksModel->get_grupos();
+            $data['grupos'] = $this->bookmarks_model->get_grupos();
             
        $this->load->view('listar_grupos',$data);
 	//$this->load->view('selector_grupos',$data);
@@ -658,7 +656,7 @@ class Main extends CI_Controller {
    /////////////////////////////////////////////////////////////////////////////
             public function verPeticiones() {
                 $data = array(
-			'enlaces' => $this->bookmarksModel->verTodasLasPeticiones()	
+			'enlaces' => $this->bookmarks_model->verTodasLasPeticiones()	
 		);
 		$this->load->view('listar_peticiones', $data);
 		
