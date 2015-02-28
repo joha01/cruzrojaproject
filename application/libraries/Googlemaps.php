@@ -140,6 +140,10 @@ class Googlemaps {
 	var $placesTypes				= array();					// The types of places to search for. For a list of supported types see http://code.google.com/apis/maps/documentation/places/supported_types.html
 	var $placesName					= '';						// A term to be matched against when searching for places to display on the map
 
+        
+        var $sidebar_id = null;    
+        var $sidebar = true;   
+        
 	function Googlemaps($config = array())
 	{
 		if (count($config) > 0)
@@ -2060,6 +2064,31 @@ class Googlemaps {
 		return array($lat, $lng);
 
 	}
+        
+        
+        ///////////////////
+         /**
+     * enables sidebar
+     *
+     */
+    function enableSidebar() {
+        $this->sidebar = true;
+    }
+    /**
+     * disables sidebar
+     *
+     */
+    function disableSidebar() {
+        $this->sidebar = false;
+    }    
+
+    function printSidebar() {
+        echo $this->getSidebar();
+    } 
+    function getSidebar() {
+        return sprintf('<div id="%s" class="'.$this->sidebar_id.'"></div>',$this->sidebar_id) . "\n";
+    }  
+        ////////////////
 
 }
 

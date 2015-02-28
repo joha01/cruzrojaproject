@@ -178,7 +178,6 @@ $phonecontacto = array(
 
 
 <form id="registration-form" class="form-horizontal">
-<h2>Sample Registration form <small>(Fill up the forms to get register)</small></h2>
 <div class="form-control-group">
             <label class="control-label" for="name">Your Name</label>
 <div class="controls">

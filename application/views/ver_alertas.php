@@ -105,10 +105,7 @@ echo Open('div', array('class'=>'row'));
             
             ?>
         </table>
-        
-    
-	
-    
+   
 <?php
         
 
@@ -123,7 +120,7 @@ $js = array(
     'https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js',
     base_url().'/resources/bootstrap-3.2.0/js/bootstrap.min.js'
 );
- 
+ echo $sidebar; 
 echo jsload($js);
 
 ?>

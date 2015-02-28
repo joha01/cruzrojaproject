@@ -29,7 +29,7 @@ class Main extends CI_Controller {
 	{
                
             $user = array();
-			$result = $this->bookmarksModel->getByUser($userid);
+			$result = $this->bookmarks_model->getByUser($userid);
 			if ($result != FALSE){
 				$user = array('result' => $result);
 			}else {
@@ -310,15 +310,12 @@ class Main extends CI_Controller {
 //        $config['zoom'] = '12';        
         $config['zoom'] = '12';    
         //el tipo de mapa, en el pdf podéis ver más opciones
-//        $config['map_type'] = 'ROADMAP';
+        $config['map_type'] = 'ROADMAP';
 //        //el ancho del mapa        
-//        $config['map_width'] = '700px';   
+        $config['map_width'] = '700px';   
 //        //el alto del mapa    
-//        $config['map_height'] = '400px';    
-        
-        
-      
-        
+        $config['map_height'] = '400px';    
+         
         //inicializamos la configuración del mapa    
         $this->googlemaps->initialize($config);    
         
@@ -336,22 +333,22 @@ class Main extends CI_Controller {
             $marker ['direccionemergencia_content'] = $info_marker->direccionemergencia;
             
             $marker['infowindow_content'] = $info_marker->direccionemergencia;
-           
-       
-
-
             //la id del marker
             $marker['id'] = $info_marker->id; 
             $this->googlemaps->add_marker($marker);
- 
+          
+            //ojo 
+           // $this->googlemaps->
+            //ojo
+            
             
         }
-        
         //en $data['datos'tenemos la información de cada marker para
         //poder utilizarlo en el sidebar en nuestra vista mapa_view
         $data['datos'] = $this->mapa_model->get_markers();
         //en data['map'] tenemos ya creado nuestro mapa para llamarlo en la vista
         $data['map'] = $this->googlemaps->create_map();
+        $data['sidebar']=  $this->googlemaps->printSidebar();
         $this->load->view('mapa_view',$data);
                 //-----------------
                 
@@ -395,7 +392,7 @@ class Main extends CI_Controller {
 //--------------------------------Lista Negra-----------------------------------
         public function verListaNegra(){
                 $res = array(
-			'alerta' => $this->bookmarksModel->verListaNegra()
+			'alerta' => $this->bookmarks_model->verListaNegra()
 			
 		);             
 		$this->load->view('ver_lista', $res);  
@@ -419,7 +416,7 @@ class Main extends CI_Controller {
             $nombregrupo = $this->input->post('selProfesiones');
          
                     $data = array(
-                        'result2' => $this->bookmarksModel->buscarUsuariosDelGrupo(trim($nombregrupo))
+                        'result2' => $this->bookmarks_model->buscarUsuariosDelGrupo(trim($nombregrupo))
                             );
 
                $this->load->view('listar_grupos', $data); 
@@ -444,15 +441,7 @@ class Main extends CI_Controller {
             $data['titulo'] = "Administración de Permisos";     
             $this->load->view('ubigeo_vista', $data);
 		
-	}  
-        
-        public function cancelar(){
-            
-            //$this->load->view('headers/menu');
-        }
-        
-        
-        
+	}      
         
         public function nuevoUSis()	{
 //		

@@ -65,7 +65,8 @@ class Auth extends CI_Controller {
 		if (!$this->ion_auth->logged_in())
 		{
 			//redirect them to the login page
-			redirect('/auth/login', 'refresh');
+//			redirect('/auth/login', 'refresh');
+                    redirect('auth/login', 'refresh');
 		}
 		elseif (!$this->ion_auth->is_admin()) //remove this elseif if you want to enable this for non-admins
 		{
@@ -508,6 +509,13 @@ class Auth extends CI_Controller {
 				{
 					$this->ion_auth->deactivate($id);
 				}
+                                if($var==1){
+                                   redirect("main/verPeticiones", 'refresh'); 
+                                }else{
+                                   
+                                //redirect("auth/forgot_password", 'refresh');
+                                   redirect('auth', 'refresh'); 
+                                }
 			}
 
 			//redirect them back to the auth page
