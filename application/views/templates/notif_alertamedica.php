@@ -38,7 +38,8 @@ $(document).ready(function(){
 function mostrar_alerta(){
     $.ajax({
             type:'POST',
-            url: 'http://localhost/cruzrojaproject/alertamedica/notifications',
+           // url: 'http://localhost/cruzrojaproject/alertamedica/notifications',
+              url: 'http://cruzroja.billingsof.com/cruzrojaproject/alertamedica/notifications',
 //            data:datasend,
             cache:false,
             success:function(msg){
@@ -57,7 +58,8 @@ function mostrar_alerta(){
 function mostrar_alerta2(){
     $.ajax({
             type:'POST',
-            url: 'http://localhost/cruzrojaproject/botonpanico/notifications',
+          //  url: 'http://localhost/cruzrojaproject/botonpanico/notifications',
+               url: 'http://cruzroja.billingsof.com/cruzrojaproject/botonpanico/notifications',
 //            data:datasend,
             cache:false,
             success:function(msg){

@@ -43,12 +43,12 @@ class Main extends CI_Controller {
         
         
         public function prim() {
-            $data['mensajes'] = $this->bookmarksModel->mensajes();
+            $data['mensajes'] = $this->bookmarks_model->mensajes();
             $this->load->view('ver_usuarios', $data);
 	}
         
         public function seg() {
-            $data['mensajes']= $this->bookmarksModel->permisos();
+            $data['mensajes']= $this->bookmarks_model->permisos();
             $this->load->view('ver_permisos', $data);
 	}
         
@@ -63,7 +63,7 @@ class Main extends CI_Controller {
 		$query = $this->input->get('query', TRUE);
 
 		if ($query) {
-			$result = $this->bookmarksModel->buscarU(trim($query));
+			$result = $this->bookmarks_model->buscarU(trim($query));
 			if ($result != FALSE){
 				$data = array('result' => $result);
 			}else {
@@ -81,7 +81,7 @@ class Main extends CI_Controller {
              //recuperamos la id que hemos envíado por ajax
             $id = $this->input->post('id');
             //solicitamos al modelo los datos de esa id
-            $edicion = $this->bookmarksModel->obtener($id);
+            $edicion = $this->bookmarks_model->obtener($id);
         //recorremos el array con los datos de ese id y creamos el formulario con el helper form
  
             $docid = array(
@@ -178,7 +178,7 @@ class Main extends CI_Controller {
                $direccion = $this->input->post('direccion');
                
                $name = $this->input->post('name');
-               $actualizar = $this->bookmarksModel->actualizar_mensaje($id, $docid, $nombres, $apellidos, $email, $password, $direccion, $name);
+               $actualizar = $this->bookmarks_model->actualizar_mensaje($id, $docid, $nombres, $apellidos, $email, $password, $direccion, $name);
             
                if($actualizar){
                 $this->session->set_flashdata('actualizado', 'La información del Usuario se actualizó correctamente');
@@ -217,7 +217,7 @@ class Main extends CI_Controller {
                $direccion = $this->input->post('direccion');
                $permisos_id = $this->input->post('permisos_id');
                
-               $nuevo = $this->bookmarksModel->agregandoUsuarios($docid, $nombres, $apellidos, $sexo, $fnacimiento, $email, $password, $direccion, $permisos_id);
+               $nuevo = $this->bookmarks_model->agregandoUsuarios($docid, $nombres, $apellidos, $sexo, $fnacimiento, $email, $password, $direccion, $permisos_id);
  
                if($nuevo){
                    $this->session->set_flashdata('correcto', 'El Registro del Nuevo Usuario ha sido realizado con Éxito!');
@@ -276,7 +276,7 @@ class Main extends CI_Controller {
 		$query = $this->input->get('query', TRUE);
 
 		if ($query) {
-			$result = $this->bookmarksModel->buscarA(trim($query));
+			$result = $this->bookmarks_model->buscarA(trim($query));
 			if ($result != FALSE){
 				$data = array('result' => $result);
 			}else {
@@ -358,7 +358,7 @@ class Main extends CI_Controller {
 //----------------------------Historial Médico----------------------------------
     public function verHistorial() {
         $data = array(
-			'enlaces' => $this->bookmarksModel->verTodosLosHistoriales()
+			'enlaces' => $this->bookmarks_model->verTodosLosHistoriales()
 			
 		);
 		
@@ -371,7 +371,7 @@ class Main extends CI_Controller {
 		$query = $this->input->get('query', TRUE);
 
 		if ($query) {
-			$result = $this->bookmarksModel->buscarH(trim($query));
+			$result = $this->bookmarks_model->buscarH(trim($query));
 			if ($result != FALSE){
 				$data = array('enlaces' => $result);
 			}else {
@@ -460,7 +460,7 @@ class Main extends CI_Controller {
         public function mostrarPermisos() {//es el administracion de permisos
         $id = $this->input->post('id');
 
-        $edicion = $this->bookmarksModel->obtener2($id);
+        $edicion = $this->bookmarks_model->obtener2($id);
 
             $name = array(
                 'name' => 'name',
@@ -511,7 +511,7 @@ class Main extends CI_Controller {
                $name = $this->input->post('docid');
                $nombres = $this->input->post('nombres');
                $apellidos = $this->input->post('apellidos');
-               $actualizar = $this->bookmarksModel->actualizar_permisos($id,$name,$nombres,$apellidos);
+               $actualizar = $this->bookmarks_model->actualizar_permisos($id,$name,$nombres,$apellidos);
             
                if($actualizar){
                 $this->session->set_flashdata('actualizado', 'El mensaje se actualizó correctamente');
@@ -538,7 +538,7 @@ class Main extends CI_Controller {
                $hora = $this->input->post('hora');
                
                $estado = $this->input->post('estado');
-               $actualizar = $this->bookmarksModel->actualizar_estado($id, $direccionemergencia, $numerocelular, $numerovictimas, $longitud, $latitud, $fecha, $hora, $estado);
+               $actualizar = $this->bookmarks_model->actualizar_estado($id, $direccionemergencia, $numerocelular, $numerovictimas, $longitud, $latitud, $fecha, $hora, $estado);
             
                if($actualizar){
                 $this->session->set_flashdata('actualizado', 'El ESTADO de la Alerta se ha actualizado');
@@ -550,7 +550,7 @@ class Main extends CI_Controller {
              //recuperamos la id que hemos envíado por ajax
             $id = $this->input->post('id');
             //solicitamos al modelo los datos de esa id
-            $edicion = $this->bookmarksModel->obtenerA($id);
+            $edicion = $this->bookmarks_model->obtenerA($id);
         //recorremos el array con los datos de ese id y creamos el formulario con el helper form
  
             $direccionemergencia = array(
@@ -653,7 +653,7 @@ class Main extends CI_Controller {
                 'observacion' => $this->input->post('observacion')
             );
         
-        $result = $this->bookmarksModel->verInfoUsuario($data,$this->input->post('id'));	
+        $result = $this->bookmarks_model->verInfoUsuario($data,$this->input->post('id'));	
         
         if($result){
                 
@@ -676,7 +676,7 @@ class Main extends CI_Controller {
         echo $persona_id;
         
         $data = array(
-			'enlaces' => $this->bookmarksModel->buscarTelefono($persona_id)	
+			'enlaces' => $this->bookmarks_model->buscarTelefono($persona_id)	
 		);
 		
                 
