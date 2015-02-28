@@ -723,8 +723,6 @@ class Auth extends CI_Controller {
 	//edit a user
 	function edit_user($id)
 	{
-		//$this->data['title'] = "Editttttt User";
-
 		if (!$this->ion_auth->logged_in() || (!$this->ion_auth->is_admin() && !($this->ion_auth->user()->row()->id == $id)))
 		{
 			redirect('auth', 'refresh');

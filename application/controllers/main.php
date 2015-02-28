@@ -306,8 +306,7 @@ class Main extends CI_Controller {
         //en lugar de la latitud y la longitud
         $config['center'] = 'loja,ecuador';
         // el zoom, que lo podemos poner en auto y de esa forma
-        //siempre mostrará todos los markers ajustando el zoom    
-//        $config['zoom'] = '12';        
+        //siempre mostrará todos los markers ajustando el zoom            
         $config['zoom'] = '12';    
         //el tipo de mapa, en el pdf podéis ver más opciones
         $config['map_type'] = 'ROADMAP';
@@ -337,11 +336,6 @@ class Main extends CI_Controller {
             $marker['id'] = $info_marker->id; 
             $this->googlemaps->add_marker($marker);
           
-            //ojo 
-           // $this->googlemaps->
-            //ojo
-            
-            
         }
         //en $data['datos'tenemos la información de cada marker para
         //poder utilizarlo en el sidebar en nuestra vista mapa_view

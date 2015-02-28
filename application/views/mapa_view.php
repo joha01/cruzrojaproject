@@ -73,6 +73,17 @@ var notificationsInSomeCategory = getNotifications('someCategory', 'unread');
     
     
     }
+    <?php
+    ////////////***********desde
+    foreach($datos as $marker_sidebar)
+        {
+            ?><li onclick="datos_marker(<?=$marker_sidebar->longitud?>,<?=$marker_sidebar->latitud?>,marker_<?=$marker_sidebar->id?>)">
+            <?=$marker_sidebar->id;?>&nbsp;&nbsp;<?=substr($marker_sidebar->direccionemergencia,0,14)?></li><?php
+        }
+
+    
+    ////////////***hasta
+    ?>
     </script>
     
 </head>

@@ -68,8 +68,9 @@ class Enfermedad extends CI_Controller {
             
             if($res){
                 echo tagcontent('strong', 'La actualizacion se ha realizado correctamente', array('class'=>'text-success'));
-                redirect('auth/index');
-//                http://localhost/autenticacionci/enfermedad/getById/3
+//                redirect('auth/index');
+                redirect('auth/index', 'refresh');
+
             }else{
                 echo tagcontent('strong', 'Ocurrio un problema, no se pudo realizar la actualizacion', array('class'=>'text-success'));                
             }
