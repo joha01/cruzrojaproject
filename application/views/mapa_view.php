@@ -1,13 +1,8 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <style type="text/css">
-        
-        
-        
-        
-        
         body{
             background: #888888
         }
@@ -43,50 +38,13 @@
      var mi_marker = new google.maps.LatLng(lat, lng);
      map.panTo(mi_marker);
      google.maps.event.trigger(marker, 'click');
-    
-    
-    
-    
-    
-    var notifications = new $.ttwNotificationMenu({
-      colors:['#f56c7e', '#fec151', '#7ad2f4']
-}); 
-
-//Add bubbles to a menu 
-notifications.initMenu({ 
-      someCategory:'#menuItemSelector'
-}); 
-
-//create a notification notifications.createNotification('Sample Notification'); 
-
-//delete a notification 
-var notification = notifications.creatNotification('some notification'); 
-notifications.deleteNotifiction(notification); 
-
-//get the notifications in a category 
-var notificationsInSomeCategory = getNotifications('someCategory', 'unread');
-    
-    
-    
-    
-    
-    
-    
     }
-    <?php
-    ////////////***********desde
-    foreach($datos as $marker_sidebar)
-        {
-            ?><li onclick="datos_marker(<?=$marker_sidebar->longitud?>,<?=$marker_sidebar->latitud?>,marker_<?=$marker_sidebar->id?>)">
-            <?=$marker_sidebar->id;?>&nbsp;&nbsp;<?=substr($marker_sidebar->direccionemergencia,0,14)?></li><?php
-        }
-
-    
-    ////////////***hasta
-    ?>
     </script>
-    
+   
+
+
 </head>
+
     
 
 
@@ -120,10 +78,34 @@ echo Open('div', array('class'=>'row'));
 <?=$map['js']?>
     
 
-
 <?=$map['html']?>
 
+<div id="sidebar">
+    <ul>
+        <table>
+          <tr align="center">
+                <th width="150">Fecha</th>
+                <th width="150">Tipo</th>
+                <th width="150">Dirección</th>
+                <th width="150">Celular</th>
+                <th width="150">Núm. Victimas</th>
+                <th width="150">Hora</th>
+                
+            </tr>
 
+            <?php
+        foreach($datos as $marker_sidebar)
+        {
+            ?><li onclick="datos_marker(<?=$marker_sidebar->longitud?>,<?=$marker_sidebar->latitud?>,marker_<?=$marker_sidebar->id?>)">
+            <?=$marker_sidebar->fecha;?>&nbsp; &nbsp;<?=$marker_sidebar->tipo;?>;&nbsp;<?=$marker_sidebar->direccion;?>
+            &nbsp;<?=$marker_sidebar->celular;?>;&nbsp;<?=$marker_sidebar->numerovictimas;?>;&nbsp;<?=$marker_sidebar->hora;?>
+            &nbsp;<?=substr($marker_sidebar->direccionemergencia,0,14)?></li><?php
+            
+        }
+        ?>
+        </table>
+    </ul>
+</div>
 
    <?php
 echo Close('div'); //cierra div .col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main   
@@ -145,5 +127,8 @@ echo jsload($js);
 
 ?>
 
+
+
+
+
 </html>
-    
