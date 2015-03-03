@@ -97,9 +97,9 @@ echo Open('div', array('class'=>'row'));
         foreach($datos as $marker_sidebar)
         {
             ?><li onclick="datos_marker(<?=$marker_sidebar->longitud?>,<?=$marker_sidebar->latitud?>,marker_<?=$marker_sidebar->id?>)">
-            <?=$marker_sidebar->fecha;?>&nbsp; &nbsp;<?=$marker_sidebar->tipo;?>;&nbsp;<?=$marker_sidebar->direccion;?>
-            &nbsp;<?=$marker_sidebar->celular;?>;&nbsp;<?=$marker_sidebar->numerovictimas;?>;&nbsp;<?=$marker_sidebar->hora;?>
-            &nbsp;<?=substr($marker_sidebar->direccionemergencia,0,14)?></li><?php
+            <?=$marker_sidebar->fecha;?>&nbsp; &nbsp;<?=$marker_sidebar->tipo;?>&nbsp; &nbsp;<?=$marker_sidebar->direccionemergencia;?>&nbsp;
+            &nbsp;<?=$marker_sidebar->numerocelular;?>&nbsp; &nbsp;<?=$marker_sidebar->numerovictimas;?>&nbsp;  &nbsp;<?=$marker_sidebar->hora;?>
+            </li><?php
             
         }
         ?>
