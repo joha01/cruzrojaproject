@@ -343,6 +343,10 @@ class Main extends CI_Controller {
         //en data['map'] tenemos ya creado nuestro mapa para llamarlo en la vista
         $data['map'] = $this->googlemaps->create_map();
         $data['sidebar']=  $this->googlemaps->printSidebar();
+        
+//ojojo
+  $data[]=      
+ //ojojoj       
         $this->load->view('mapa_view',$data);
                 //-----------------
                 
