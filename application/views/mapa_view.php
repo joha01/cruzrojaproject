@@ -84,19 +84,19 @@ echo Open('div', array('class'=>'row'));
     <ul>
         <table>
           <tr align="center">
-                <th width="150">Fecha</th>
-                <th width="150">Tipo</th>
-                <th width="150">Dirección</th>
-                <th width="150">Celular</th>
-                <th width="150">Núm. Victimas</th>
-                <th width="150">Hora</th>
+                <th >Fecha</th>
+                <th >Tipo</th>
+                <th >Dirección</th>
+                <th >Celular</th>
+                <th >Núm. Victimas</th>
+                <th>Hora</th>
                 
             </tr>
 
             <?php
         foreach($datos as $marker_sidebar)
         {
-            ?><li onclick="datos_marker(<?=$marker_sidebar->longitud?>,<?=$marker_sidebar->latitud?>,marker_<?=$marker_sidebar->id?>)">
+            ?><li onclick="datos_marker(<?=$marker_sidebar->longitud?>,<?=$marker_sidebar->latitud?>)">
             <?=$marker_sidebar->fecha;?>&nbsp; &nbsp;<?=$marker_sidebar->tipo;?>&nbsp; &nbsp;<?=$marker_sidebar->direccionemergencia;?>&nbsp;
             &nbsp;<?=$marker_sidebar->numerocelular;?>&nbsp; &nbsp;<?=$marker_sidebar->numerovictimas;?>&nbsp;  &nbsp;<?=$marker_sidebar->hora;?>
             </li><?php

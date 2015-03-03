@@ -344,9 +344,7 @@ class Main extends CI_Controller {
         $data['map'] = $this->googlemaps->create_map();
         $data['sidebar']=  $this->googlemaps->printSidebar();
         
-//ojojo
-  $data[]=      
- //ojojoj       
+   
         $this->load->view('mapa_view',$data);
                 //-----------------
                 
