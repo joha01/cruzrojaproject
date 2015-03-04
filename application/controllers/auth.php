@@ -122,7 +122,8 @@ class Auth extends CI_Controller {
 				//if the login is successful
 				//redirect them back to the home page
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
-				redirect('/', 'refresh');
+//				redirect('/', 'refresh');
+                                redirect( 'refresh');
 			}
 			else
 			{
@@ -490,7 +491,8 @@ class Auth extends CI_Controller {
 			// insert csrf check
 			$this->data['csrf'] = $this->_get_csrf_nonce();
 			$this->data['user'] = $this->ion_auth->user($id)->row();
-
+                        
+                        
 			$this->_render_page('auth/deactivate_user', $this->data);
 		}
 		else

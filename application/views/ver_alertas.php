@@ -69,48 +69,10 @@ echo Open('div', array('class'=>'row'));
     
 //    echo Open('div', array('class'=>'col-sm-3 col-sm-offset-3 col-md-1 col-md-offset-2 main'));   
     echo Open('div', array('class'=>'col-sm-4 col-sm-offset-1 col-md-9 col-md-offset-3 main'));   
-?>   
-      
+?>      
           <h1 class="page-header">Alertas Médicas Atendidas</h1>          
-         
-      <table>
-          <tr align="center">
-                <th width="150">Fecha</th>
-                <th width="150">Tipo</th>
-                <th width="150">Dirección</th>
-                <th width="150">Celular</th>
-                <th width="150">Núm. Victimas</th>
-                <th width="150">Hora</th>
-                
-            </tr>
-
-            <?php
-                            if ($enlaces) {
-                    foreach ($enlaces->result() as $row) {  
-                         if($row->estado!=2){  
-                             
-                             
-         
-                             
-                    echo "<tr>";
-                    echo "<td>".$row->fecha."</td>";
-                    echo "<td>".$row->tipo."</td>";                     
-                    echo "<td>".$row->direccionemergencia."</td>";
-                    echo "<td>".$row->numerocelular."</td>";
-                    echo "<td align='center'>".$row->numerovictimas."</td>";
-                    echo "<td>".$row->hora."</td>";
-                         }
-                    }
-                }
-
-            
-            ?>
-        </table>
-   
 <?php
         
-
-
 
     echo Close('div'); //cierra div .col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main   
              

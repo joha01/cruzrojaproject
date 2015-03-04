@@ -12,11 +12,7 @@ class Main extends CI_Controller {
                 $this->load->library('image_lib');
                 $this->load->library('table');
                 $this->load->library('form_validation');
-                $this->load->library('ion_auth');
-//                $this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
-//
-//		$this->lang->load('main');
-                
+                $this->load->library('ion_auth');             
 	}
 
 	public function index() {
@@ -196,13 +192,8 @@ class Main extends CI_Controller {
             $this->form_validation->set_rules("password","Password","required|trim|min_length[5]|max_length[12]|xss_clean");
             $this->form_validation->set_rules("direccion","Dirección","required|min_length[3]|max_length[100]|xss_clean");
             $this->form_validation->set_rules("permisos_id","Tipo de permiso","required|min_length[1]|max_length[2]|xss_clean");
-            
-//personalizar mensajes de error
-//            $this->form_validation->set_message("required", Este campo es requerido.");
-//            $this->form_validation->set_message("valid_email", Escriba un email válido.");
-//            $this->form_validation->set_message("min_length", Requeridos minimo %s caracteres.");
-//            $this->form_validation->set_message("max_length", No puede escribir más de %s caracteres.");
-// 
+
+
             if(!$this->form_validation->run())
             {
                  $this->primFormulario();
@@ -227,48 +218,6 @@ class Main extends CI_Controller {
             } 
     }
              
-//	public function guardar() {
-//            if ($this->form_validation->run('pre_inscripcion')!=false) {
-//			$id_preinsc = $this->bookmarksModel->guardarUI();
-//			//redirect('reportes/preinscripcion/'.$id_preinsc);
-//		}
-//            
-////            $data = array(
-////                        'docid'   => $this->input->post('docid',TRUE),
-////			'nombres'   => $this->input->post('nombres',TRUE),
-////			'apellidos'   => $this->input->post('apellidos',TRUE),
-////                        'email'   => $this->input->post('email',TRUE),
-////                        'password'   => $this->input->post('password',TRUE),
-////                        'direccion'   => $this->input->post('direccion',TRUE),
-////                        'name'   => $this->input->post('name',TRUE),
-////                        
-////                );
-////		$this->bookmarksModel->guardarUI($data);
-////                redirect('main/agregar');
-//            
-//            
-//	}
-
-//	public function guardarD() {
-//		$data = array(
-//			'medico'   => $this->input->post('medico',TRUE),
-//			
-//		);
-//
-//		$this->bookmarksModel->guardar($data);
-//		redirect('main/agregar');
-//	}
-
-//	public function ver(){
-//		$data = array(
-//			'enlaces' => $this->bookmarksModel->verTodo()
-//			
-//		);
-//
-//		$this->load->view('headers/librerias');
-//		$this->load->view('ver', $data);
-//		$this->load->view('footer');
-//	}
 //-----------------------------------Alertas------------------------------------
 	public function buscar() {
 		$data = array();
@@ -346,7 +295,6 @@ class Main extends CI_Controller {
         
    
         $this->load->view('mapa_view',$data);
-                //-----------------
                 
 	}
 
