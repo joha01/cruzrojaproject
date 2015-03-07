@@ -14,7 +14,7 @@ class Mapa_model extends CI_Model{
             //$this -> db -> from('alertamedica a');
             $this -> db -> from('alertamedica a, botonpanico b');
             //$this -> db -> join('tipoaccidente ta','a.tipoaccidente_id = ta.id');
-             $this -> db -> join('tipoaccidente ta','a.tipoaccidente_id = ta.id && (a.estado = 1 && b.estado=1)');
+             $this -> db -> join('tipoaccidente ta','a.tipoaccidente_id = ta.id && a.estado = 1');
              $this -> db -> order_by('fecha','desc');   
             $markers = $this -> db -> get();
 
