@@ -122,8 +122,8 @@ class Auth extends CI_Controller {
 				//if the login is successful
 				//redirect them back to the home page
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
-//				redirect('/', 'refresh');
-                                redirect( 'refresh');
+				redirect('auth', 'refresh');
+                                
 			}
 			else
 			{
@@ -466,7 +466,7 @@ class Auth extends CI_Controller {
 		if ($activation)
 		{
 			//redirect them to the auth page
-			$this->session->set_flashdata('message', $this->ion_auth->messages());
+			//$this->session->set_flashdata('message', $this->ion_auth->messages());
 			redirect("auth", 'refresh');
 		}
 		else
@@ -480,6 +480,7 @@ class Auth extends CI_Controller {
 	//deactivate the user
 	function deactivate($id = NULL)
 	{
+		$this->load->helper('url');
 		$id = (int) $id;
 
 		$this->load->library('form_validation');
@@ -491,38 +492,46 @@ class Auth extends CI_Controller {
 			// insert csrf check
 			$this->data['csrf'] = $this->_get_csrf_nonce();
 			$this->data['user'] = $this->ion_auth->user($id)->row();
-                        
-                        
+
 			$this->_render_page('auth/deactivate_user', $this->data);
 		}
-		else
+		else if ($this->ion_auth->is_admin() )
 		{
-			// do we really want to deactivate?
-			if ($this->input->post('confirm') == 'yes')
+			if($this->input->post('confirm') == 'yes')
 			{
-				// do we have a valid request?
-				if ($this->_valid_csrf_nonce() === FALSE || $id != $this->input->post('id'))
+					
+				$desactivation = $this->ion_auth->deactivate($id);
+				if ($desactivation =='1')
 				{
+		
+			
+					
+					redirect("auth", 'refresh');
+				}else{
 					show_error($this->lang->line('error_csrf'));
-				}
 
-				// do we have the right userlevel?
-				if ($this->ion_auth->logged_in() && $this->ion_auth->is_admin())
-				{
-					$this->ion_auth->deactivate($id);
 				}
-                                if($var==1){
-                                   redirect("main/verPeticiones", 'refresh'); 
-                                }else{
-                                   
-                                //redirect("auth/forgot_password", 'refresh');
-                                   redirect('auth', 'refresh'); 
-                                }
+			}else{
+				//$this->session->set_flashdata('message', $this->ion_auth->errors());
+				redirect("auth", 'refresh');
 			}
-
-			//redirect them back to the auth page
-			redirect('auth', 'refresh');
 		}
+	
+	}
+	function num($desactivation){
+	
+		if ($desactivation =='1')
+		{
+		
+			
+			$this->session->set_flashdata('message', $this->ion_auth->errors());
+			redirect("/auth", 'refresh');
+		}
+		
+			
+			
+			
+		
 	}
 
 	//create a new user

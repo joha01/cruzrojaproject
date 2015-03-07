@@ -19,6 +19,7 @@
                 <li><a href="<?= base_url().'main/verPeticiones'?>">Peticiones de Registro</a></li>
                 <li><a href="<?= base_url().'main/verEst'?>">Reportes de Accidentes</a></li>
                 <li><a href="<?= base_url().'main/verAlertas'?>">Alertas Médicas</a></li>
+                <li><a href="<?= base_url().'main/verAlertasPanico'?>">Botón de Pánico</a></li>
                 <li><a href="<?= base_url().'main/buscarPermisos'?>">Visualización por Grupos</a></li>
               <li><a href="<?= base_url().'main/verListaNegra'?>">Lista Negra</a></li>
 

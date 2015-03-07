@@ -1,20 +1,20 @@
-<!DOCTYPE html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
 <html lang="en">
-<head>
-    <meta charset="utf-8">
+<head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
+    
     <style type="text/css">
         body{
             background: #888888
         }
         #sidebar{
             position: absolute;
-            width: 500px;
-            height: 590px;
+            width: 350px;
+            height: 500px;
             background: #222;
             color: #fff;
-            margin-left: 600px;
-            margin-top: -600px;
+            margin-left: 800px;
+            margin-top: -506px;
             border: 5px solid #fff;
         }
         ul{
@@ -41,7 +41,7 @@
      google.maps.event.trigger(marker, 'click');
     }
     </script>
-   
+     
 </head>
 
 <?php
@@ -60,67 +60,39 @@ echo csslink($css);
 
 echo Open('div', array('class'=>'container'));
 
-//$this->load->view('templates/header.php');
+$this->load->view('templates/header.php');
 
 echo Open('div', array('class'=>'row'));
-
+ $this->load->view('templates/slidebar.php');
  
-      echo Open('div', array('class'=>'col-sm-4 col-sm-offset-1 col-md-9 col-md-offset-3 main'));   
-?>   
+      echo Open('div', array('class'=>'col-sm-1 col-sm-offset-9 col-md-5 col-md-offset-2 main'));  
+      ?>      
+          <h1 class="page-header">Alertas Médicas Atendidas</h1>          
+
+        
+  
 <?=$map['js']?>
     
-
 <?=$map['html']?>
 
 <div id="sidebar"> 
         
-        <table>
-          <tr >
-                <th width="80">Fecha</th>
-                <th width="300">Tipo</th>
-                <th width="300">Dirección</th>
-                <th width="300">Celular</th>
-                <th width="150">Núm. Victimas</th>
-                <th width="150">Hora</th>
-                
-            </tr>
+  <ul>
+      
             <?php
         foreach($datos as $marker_sidebar )
         { 
-          ?>
-          <li onclick="datos_marker(
-          				<?php
-          					echo "<td>".$marker_sidebar->longitud."</td>"
-          					?>
-          					,
-          			       <?php 
-          			       		echo "<td>".$marker_sidebar->latitud."</td>"
-          			       		?>
-          			       		,marker_
-          			       <?php
-          			       		echo "<td>".$marker_sidebar->id."</td>"?>
-          			       )">
+          ?><li onclick="datos_marker(<?=$marker_sidebar->longitud?>,<?=$marker_sidebar->latitud?>,marker_<?=$marker_sidebar->id?>)">
+            
 
-           <?php
-            echo "<tr>";
-            echo "<td>".$marker_sidebar->fecha."</td>";
-            echo "<td>".$marker_sidebar->tipo."</td>";
-            echo "<td>".$marker_sidebar->direccionemergencia."</td>";
-            echo "<td>".$marker_sidebar->numerocelular."</td>";
-            echo "<td>".$marker_sidebar->numerovictimas."</td>";
-            echo "<td>".$marker_sidebar->hora."</td>";
-            
-             echo "</tr>";
-           ?>
-            
-            </li><?php
-            
-            
+           <?=$marker_sidebar->fecha;?>&nbsp;&nbsp;<?=substr($marker_sidebar->direccionemergencia,0,40)?></li><?php
+        
             
         
         }
         ?>
-	</table>
+	</ul>
+
 </div>
    <?php
 echo Close('div'); //cierra div .col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main   

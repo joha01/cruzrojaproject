@@ -12,7 +12,8 @@ class Main extends CI_Controller {
                 $this->load->library('image_lib');
                 $this->load->library('table');
                 $this->load->library('form_validation');
-                $this->load->library('ion_auth');             
+                $this->load->library('ion_auth'); 
+                $this->load->library('googlemaps');            
 	}
 
 	public function index() {
@@ -239,66 +240,64 @@ class Main extends CI_Controller {
 	}
 
       
-        public function verAlertas(){//ojo ARREGLAR el estado de las alertas(MAPA)
-		$data = array(
-			'enlaces' => $this->bookmarks_model->verTodasLasAlertas()
-			
-		);
-		
-		$this->load->view('ver_alertas', $data);
-		
-                //------------------
-                //creamos la configuración del mapa con un array
+        public function verAlertas(){
+        	
         $config = array();
-        //la zona del mapa que queremos mostrar al cargar el mapa
-        //como vemos le podemos pasar la ciudad y el país
-        //en lugar de la latitud y la longitud
         $config['center'] = 'loja,ecuador';
-        // el zoom, que lo podemos poner en auto y de esa forma
-        //siempre mostrará todos los markers ajustando el zoom            
-        $config['zoom'] = '12';    
-        //el tipo de mapa, en el pdf podéis ver más opciones
+        $config['zoom'] = '15';    
         $config['map_type'] = 'ROADMAP';
-//        //el ancho del mapa        
-        $config['map_width'] = '700px';   
-//        //el alto del mapa    
-        $config['map_height'] = '400px';    
-         
-        //inicializamos la configuración del mapa    
+        $config['map_width'] = '800px';   
+        $config['map_height'] = '500px';    
+             
         $this->googlemaps->initialize($config);    
         
-        //hacemos la consulta al modelo para pedirle 
-        //la posición de los markers y el direccionemergencia
-        $markers = $this->mapa_model->get_markers();
+       $markers = $this->bookmarks_model->verTodasLasAlertas();
         foreach($markers as $info_marker)
         {
             $marker = array();
-            //podemos elegir DROP o BOUNCE
             $marker ['animation'] = 'DROP';
-            //posición de los markers
             $marker ['position'] = $info_marker->longitud.','.$info_marker->latitud;
-            //direccionemergencia de los markers(ventana de información)    
-            $marker ['direccionemergencia_content'] = $info_marker->direccionemergencia;
-            
-            $marker['infowindow_content'] = $info_marker->direccionemergencia;
-            //la id del marker
+            $marker ['direccionemergencia_content'] = $info_marker->direccionemergencia ;
+            $marker['infowindow_content'] = $info_marker->numerovictimas." victimas"." ; Accidente ".$info_marker->tipo;
             $marker['id'] = $info_marker->id; 
             $this->googlemaps->add_marker($marker);
-          
         }
-        //en $data['datos'tenemos la información de cada marker para
-        //poder utilizarlo en el sidebar en nuestra vista mapa_view
         $data['datos'] = $this->mapa_model->get_markers();
-        //en data['map'] tenemos ya creado nuestro mapa para llamarlo en la vista
         $data['map'] = $this->googlemaps->create_map();
         $data['sidebar']=  $this->googlemaps->printSidebar();
         
-   
         $this->load->view('mapa_view',$data);
-                
+       
 	}
 
-        
+       public function verAlertasPanico(){
+		
+        $config = array();
+        $config['center'] = 'loja,ecuador';
+        $config['zoom'] = '15';    
+        $config['map_type'] = 'ROADMAP';
+        $config['map_width'] = '800px';   
+        $config['map_height'] = '500px';    
+         
+        //inicializamos la configuración del mapa    
+        $this->googlemaps->initialize($config);    
+        $markers = $this->bookmarks_model->verTodasLasAlertasPanico();
+        foreach($markers as $info_marker)
+        {
+            $marker = array();
+            $marker ['animation'] = 'DROP';
+            $marker ['position'] = $info_marker->longitud.','.$info_marker->latitud;
+            $marker ['direccionemergencia_content'] = $info_marker->direccione;
+            $marker['infowindow_content'] = " Usuario: ".$info_marker->first_name." ".$info_marker->last_name;
+            $marker['id'] = $info_marker->idB; 
+            $this->googlemaps->add_marker($marker);
+        }
+        $data['datos'] = $this->bookmarks_model->verTodasLasAlertasPanico();
+        $data['map'] = $this->googlemaps->create_map();
+        $data['sidebar']=  $this->googlemaps->printSidebar();
+        $this->load->view('ver_alertas', $data);
+                
+	} 
 //----------------------------Historial Médico----------------------------------
     public function verHistorial() {
         $data = array(
@@ -625,28 +624,11 @@ class Main extends CI_Controller {
 		
                 
                 return $persona_id;      
-             //***********
-//      $CI->load->model('bookmarksModel'); 
-//
-//               $alerta = $CI->bookmarksModel->buscarTelefono($persona_id);       
-//
-//		$row = array(
-//              'name'=>$alerta
-//      );
-//
-//      
-	
-       
-//                                $contadorestados= $alerta;
-//                    
-//                              
-//                   
-//               
-//      
-//     //********** 
+    
+
     }
 
 }
 
 /* End of file main.php */
-/* Location: ./application/controllers/main.php */
+/* Location: ./application/controllers/mai
