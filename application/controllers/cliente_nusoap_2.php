@@ -35,7 +35,8 @@ class Cliente_nusoap_2 extends CI_Controller {
       
       $parts = array(
           'longitud' => '17.512321',
-          'latitud' => '18.9512151',      
+          'latitud' => '18.9512151',
+          'direccione' => 'Mercadillo Y Juan José Peña',
           'codtarjeta' => '34567890',
       );
       

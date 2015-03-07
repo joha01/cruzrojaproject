@@ -37,6 +37,7 @@ class Servidor3_nusoap extends CI_Controller {
                   
                     'longitud' => 'xsd:string',
                     'latitud' => 'xsd:string',
+                    'direccione' => 'xsd:string',
                     'persona_id' => 'xsd:int',
                     'codtarjeta' => 'xsd:string',
                 )                       
@@ -60,7 +61,7 @@ class Servidor3_nusoap extends CI_Controller {
    }  // end function
    
    
-   function crear_botonpanico($long, $lat, $persona_id, $codtarjeta){
+   function crear_botonpanico($long, $lat, $direccione, $persona_id, $codtarjeta){
        
       $CI =& get_instance();
       $CI->load->model('botonpanico_model');
@@ -93,6 +94,7 @@ class Servidor3_nusoap extends CI_Controller {
           'latitud' => $lat,
           'fecha' => date('Y-m-d',time()),
           'hora' => date('H:i:s',time()),
+          'direccione'=> $direccione,
           'estado' => 0,//ojo
           'contadorestados' =>$contadorestados,
           'users_id'=> $persona_id,

@@ -10,9 +10,9 @@ class Mapa_model extends CI_Model{
     public function get_markers()
     {
 
-        $this -> db -> select('a.*, b.*, ta.tipo');
+        $this -> db -> select('a.*, ta.tipo');
             //$this -> db -> from('alertamedica a');
-            $this -> db -> from('alertamedica a, botonpanico b');
+            $this -> db -> from('alertamedica a');
             //$this -> db -> join('tipoaccidente ta','a.tipoaccidente_id = ta.id');
              $this -> db -> join('tipoaccidente ta','a.tipoaccidente_id = ta.id && a.estado = 1');
              $this -> db -> order_by('fecha','desc');   
